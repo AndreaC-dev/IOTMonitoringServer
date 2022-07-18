@@ -13,11 +13,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from django.contrib import messages
-from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv() 
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,10 +26,8 @@ SECRET_KEY = 'django-insecure-bu+)8ft@9+qd*#e#f_s@wkyv2tmq+#!a^3j15h3kjk^jzksu0j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ip_maquina_visualizador=str(os.getenv('ip_maquina_visualizador'))
-ip_maquina_db=str(os.getenv('ip_maquina_db'))
-ip_maquina_mqtt=str(os.getenv('ip_maquina_mqtt'))
-ALLOWED_HOSTS = ["localhost", ip_maquina_visualizador]
+
+ALLOWED_HOSTS = ["localhost", "3.228.13.35"]
 
 
 # Application definition
@@ -99,7 +95,7 @@ DATABASES = {
         "NAME": "iot_data",  # Nombre de la base de datos
         "USER": "dbadmin",  # Nombre de usuario
         "PASSWORD": "uniandesIOT1234*",  # Contraseña
-        "HOST": ip_maquina_db,  # Dirección IP de la base de datos
+        "HOST": "44.202.201.110",  # Dirección IP de la base de datos
         "PORT": "",  # Puerto de la base de datos
     }
 }
@@ -159,7 +155,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Dirección del bróker MQTT
-MQTT_HOST = ip_maquina_mqtt
+MQTT_HOST = "18.209.93.29"
 
 # Puerto del bróker MQTT
 MQTT_PORT = 8082
