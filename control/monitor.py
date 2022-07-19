@@ -54,7 +54,7 @@ def analyze_data():
             print(datetime.now(), "Sending alert to {} {}".format(topic, variable))
             client.publish(topic, message)
             alerts += 1
-        if variable>10:
+        if max_value<10:
             message = "CERRAR SISTEMA {} {} {}".format(variable, min_value, max_value)
             topic = '{}/{}/{}/{}/in'.format(country, state, city, user)
             print(datetime.now(), "Sending alert to {} {}".format(topic, variable))
